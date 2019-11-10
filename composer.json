@@ -1,0 +1,14 @@
+{
+    "name": "luiztoni/demo-php-mvc",
+    "description": "A simple demo for php mvc",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luiz Toni",
+            "email": "luiztoni@outlook.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

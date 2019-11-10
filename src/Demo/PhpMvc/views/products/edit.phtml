@@ -1,0 +1,12 @@
+<?php include_once($this->getViewPath('template/header.phtml'));?>
+<main>
+<br>
+<div class="row container">
+<form action="/products/update/<?php echo $product->getId() ?>" method="POST">
+    <?php include_once('form.phtml');?>
+    <input type="hidden" name="_method" value="PUT">
+    <button class="btn waves-effect waves-light" type="submit">Send</button>
+</form>
+</div>
+</main>
+<?php include_once($this->getViewPath('template/footer.phtml'));?>

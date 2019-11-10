@@ -1,0 +1,44 @@
+
+<?php include_once($this->getViewPath('template/header.phtml'));?>    
+<main>
+<div class="container">
+    <table class="striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price US$</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+        <?php foreach ($products as $product) : ?>
+        <tr>
+            <td><a href="/products/show/<?php echo $product->getId() ?>"><?php echo $product->getName() ?></td>
+            <td><?php echo $product->getPrice() ?></td>
+            <td>
+                <a id="<?php echo $product->getId() ?>" onclick="event.preventDefault(); getForm('edit-form',id);"><i class="material-icons">edit</i></a>
+            </td>
+            <td><a id="<?php echo $product->getId() ?>" onclick="event.preventDefault(); getForm('delete-form',id);"><i class="material-icons">delete</i></a></td>
+        </tr>
+        <?php endforeach ?>
+        </tbody>
+    </table>
+    <form id="edit-form"  action="/products/edit/" method="POST">
+        <input type="hidden" name="token" value="<?php isset($_COOKIE['token'])? print($_COOKIE['token']):''?>">
+    </form>
+    <form id="delete-form" action="/products/destroy/" method="POST">
+        <input type="hidden" name="token" value="<?php isset($_COOKIE['token'])? print($_COOKIE['token']):''?>">
+        <input type="hidden" name="_method" value="DELETE">
+    </form>
+    <br>
+    <a onclick="event.preventDefault(); document.getElementById('create-form').submit();" class="waves-effect waves-light btn"><i class="material-icons left">add</i>new</a>
+    <form id="create-form" action="/products/create" method="POST">
+        <input type="hidden" name="token" value="<?php isset($_COOKIE['token'])? print($_COOKIE['token']):''?>">
+    </form>
+
+</div>
+</main>
+<?php include_once($this->getViewPath('template/footer.phtml'));?>
+

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        
+        main {
+            flex: 1 0 auto;
+        }
+    </style>
+    <title>App</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper green">
+            <a href="#!" class="brand-logo center">App</a>
+            <ul class="left hide-on-med-and-down">
+                <li><a class="tooltipped" id="works-tooltip" data-position="bottom" data-tooltip="Works"
+                        href="#" onmouseover="show_tooltip(this.id)"><i class="material-icons">work</i></a></li>
+                <li><a class="tooltipped" id="admin-tooltip" data-position="bottom" data-tooltip="Friends"
+                        href="#" onmouseover="show_tooltip(this.id)"><i class="material-icons">supervisor_account</i></a></li>
+                <li><a class="tooltipped" id="users-tooltip" data-position="bottom" data-tooltip="Pictures" onmouseover="show_tooltip(this.id)"><i class="material-icons">recent_actors</i></a></li>
+            </ul>
+            <ul class="right hide-on-med-and-down">
+                <li class="active">
+                    <a href="#" onmouseover="show_dropdown()" class="dropdown-trigger" data-target='dropdown1'>
+                        <spam> Luiz <i class="material-icons right">perm_identity</i></spam>
+                    </a>
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown1' class='dropdown-content'>
+                        <li><a href="#!"><i class="material-icons">account_circle</i>About</a></li>
+                        <li class="divider" tabindex="-1"></li>
+                        <li><a href="#!"><i class="material-icons">settings</i>Settings</a></li>
+                    </ul>
+                </li>
+                <li><a class="btn-small btn-floating red" href="#"><i class="material-icons">settings_power</i></a></li>
+            </ul>
+
+        </div>
+    </nav>
+    <main>
+        <div class="container">
+          <table class="striped">
+              <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th>email</th>
+                      <th></th>
+                      <th></th>
+                  </tr>
+              </thead>
+
+              <tbody>
+                  <tr>
+                      <td>Foo</td>
+                      <td>foo@email.com</td>
+                      <td><a href="#"><i class="material-icons">edit</i></a></td>
+                      <td><a href="#"><i class="material-icons">delete</i></a></td>
+                  </tr>
+              </tbody>
+          </table>
+
+            <br>
+            <br>
+          <a class="btn green" href="#modal1" name="action" onclick="show_modal()">New
+            <i class="material-icons right">add</i>
+          </a>
+
+          <!-- Modal Structure -->
+          <div id="modal1" class="modal">
+              <div class="modal-content">
+                  <h5>New</h5>
+                  <div class="row">
+                   <form class="col s12">
+                     <div class="row">
+                       <div class="input-field col s6">
+                         <i class="material-icons prefix">account_circle</i>
+                         <input id="icon_prefix" type="text" class="validate">
+                         <label for="icon_prefix">Name</label>
+                       </div>
+
+                       <div class="input-field col s6">
+                         <i class="material-icons prefix">email</i>
+                         <input id="email" type="email" class="validate">
+                         <label for="email" data-error="wrong" data-success="right">Email</label>
+                       </div>
+                     </div>
+                   </form>
+                 </div>
+
+              </div>
+              <div class="modal-footer">
+                  <a href="#!" class="modal-action modal-close btn-flat">Cancel</a>
+                  <a href="#!" class="modal-action modal-close btn-flat">Send</a>
+              </div>
+          </div>
+          </div>
+        </div>
+    </main>
+
+    <footer class="page-footer green">
+        <div class="footer-copyright">
+            <div class="container">
+                © Company <a class="grey-text text-lighten-4 right" href="#!">about</a>
+            </div>    
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script>
+		function show_modal() {
+			var elem = document.querySelector('.modal');
+			var instance = M.Modal.init(elem);
+			instance.open();
+        }
+        
+        function show_tooltip(id) {
+            id = '#'+ id;
+            var elem = document.querySelector(id);
+            var instance = M.Tooltip.init(elem);
+            instance.open();
+        }
+
+        function show_dropdown() {
+            var elem = document.querySelector('.dropdown-trigger');
+            var instance = M.Dropdown.init(elem);
+            instance.open();
+        }
+    </script>
+</body>
+</html>
